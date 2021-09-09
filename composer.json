@@ -1,6 +1,6 @@
 {
     "name": "youyiio/beyong-commons",
-    "description": "A PHP common classes library",
+    "description": "A PHP common classes library for utils\collections\data process\io and so on.",
     "keywords": [
         "beyong-commons",
         "apache",
@@ -15,8 +15,8 @@
     "minimum-stability": "dev",
     "authors": [
         {
-            "name": "cattong",
-            "email": "aronter@gmail.com"
+            "name": "youyiio",
+            "email": "developer@beyongx.com"
         }
     ],
     "homepage": "https://www.beyongx.com",
