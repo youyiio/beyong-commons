@@ -34,10 +34,10 @@ class StringUtils {
             return "";
 		}
 
-		$length = strlen($chars) - 1;
+		$charsLength = strlen($chars) - 1;
 		$myRand = "";
 		for ($i=0; $i < $length; $i++) {
-			$j = rand(0, $length);
+			$j = rand(0, $charsLength);
 			$myRand .= $chars[$j];
 		}
 	
