@@ -1,0 +1,9 @@
+.idea
+.vscode
+/vendor
+/log
+
+composer.lock
+examples/config.php
+examples/config_*.php
+examples/log
