@@ -14,7 +14,7 @@ class ExcelReader
             return '文件不存在!';
         }
 
-        $ext = pathinfo($filePath,PATHINFO_EXTENSION); //文件后缀
+        $ext = pathinfo($filePath, PATHINFO_EXTENSION); //文件后缀
         $ext = strtolower($ext);
         if (!in_array($ext, ['xls', 'xlsx'])) {
              return '文件后缀格式不正确!';
@@ -22,9 +22,9 @@ class ExcelReader
 
         //判断excel表类型为2003还是2007
         if(strtolower($ext)=='xls') {
-            $objReader = IOFactory::createReader('Excel5');
-        } else if(strtolower($ext)=='xlsx') {
-            $objReader = IOFactory::createReader('Excel2007');
+            $objReader = IOFactory::createReader('Xls');
+        } else if(strtolower($ext) == 'xlsx') {
+            $objReader = IOFactory::createReader('Xlsx');
         }
         $objReader->setReadDataOnly(true);
         $objPHPExcel = $objReader->load($filePath);

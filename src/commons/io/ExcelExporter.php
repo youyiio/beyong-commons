@@ -32,9 +32,15 @@ class ExcelExporter
             $dataMetaArr = range(0,count($titleArr) - 1,1);
         }
 
-        if (!in_array($writerType, ['xlsx', 'xls'])) {
-            $writerType = 'xlsx';
+        $writerType = strtolower($writerType);
+        if ($writerType == 'xls') {
+            $writerType = 'Xls';
+        } else if ($writerType == 'xlsx') {
+            $writerType = 'Xlsx';
+        } else {
+            $writerType = 'Xlsx';
         }
+        
 
         $objPHPExcel = new Spreadsheet();
         $objPHPExcel->setActiveSheetIndex(0);//设置当前sheet为第一个
@@ -62,16 +68,12 @@ class ExcelExporter
         //设置sheet的名称
         $objPHPExcel->getActiveSheet()->setTitle('导出');
         $objPHPExcel->setActiveSheetIndex(0); //设置sheet的起始位置
-        if ($writerType == 'xls') {
-            //通过IOFactory的写函数将上面数据写出来
-            $PHPWriter = IOFactory::createWriter($objPHPExcel, 'Excel5');
-        } else {
-            $PHPWriter = IOFactory::createWriter( $objPHPExcel, "Excel2007");
-        }
+       
+        $PHPWriter = IOFactory::createWriter($objPHPExcel, $writerType);       
 
         //输出路径
         if (strtolower($savePath) == 'php://output') {
-            if ($writerType == 'xls') {
+            if ($writerType == 'Xls') {
                 header('Content-Type:application/vnd.ms-excel');//告诉浏览器将要输出Excel03版本文件
             } else {
                 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');//告诉浏览器输出07Excel文件
@@ -112,11 +114,16 @@ class ExcelExporter
             $dataMetaArr = range(0,count($titleArr) - 1,1);
         }
 
-        if (!in_array($writerType, ['xlsx', 'xls'])) {
-            $writerType = 'xlsx';
+        $writerType = strtolower($writerType);
+        if ($writerType == 'xls') {
+            $writerType = 'Xls';
+        } else if ($writerType == 'xlsx') {
+            $writerType = 'Xlsx';
+        } else {
+            $writerType = 'Xlsx';
         }
 
-        $phpExcelTpl = IOFactory::createReader('Excel5')->load($templateFile);
+        $phpExcelTpl = IOFactory::createReader('Xlsx')->load($templateFile);
         $objPHPExcel = clone $phpExcelTpl;
         $objPHPExcel->setActiveSheetIndex(0);//设置当前sheet为第一个
 
@@ -142,16 +149,12 @@ class ExcelExporter
         //设置sheet的名称
         $objPHPExcel->getActiveSheet()->setTitle('导出');
         $objPHPExcel->setActiveSheetIndex(0); //设置sheet的起始位置
-        if ($writerType == 'xls') {
-            //通过PHPExcel_IOFactory的写函数将上面数据写出来
-            $PHPWriter = IOFactory::createWriter($objPHPExcel, 'Excel5');
-        } else {
-            $PHPWriter = IOFactory::createWriter( $objPHPExcel, "Excel2007");
-        }
+        
+        $PHPWriter = IOFactory::createWriter($objPHPExcel, $writerType);
 
         //输出路径
         if (strtolower($savePath) == 'php://output') {
-            if ($writerType == 'xls') {
+            if ($writerType == 'Xls') {
                 header('Content-Type:application/vnd.ms-excel');//告诉浏览器将要输出Excel03版本文件
             } else {
                 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');//告诉浏览器输出07Excel文件
