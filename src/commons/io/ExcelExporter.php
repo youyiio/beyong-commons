@@ -79,12 +79,12 @@ class ExcelExporter
                 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');//告诉浏览器输出07Excel文件
             }
             header('Cache-Control: max-age=0');//禁止缓存
-            $fileName = 'excel_' . date('Y-m-d-Hi', time()) . '.' . $writerType;
+            $fileName = 'excel_' . date('Y-m-d-Hi', time()) . '.' . strtolower($writerType);
             header("Content-Disposition: attachment;filename=\"$fileName\"");//告诉浏览器输出浏览器名称
 
             $PHPWriter->save("php://output"); //表示输出到下载流
         } else {
-            $fileName = 'excel_' . date('Y-m-d-Hi', time()) . '.' . $writerType;
+            $fileName = 'excel_' . date('Y-m-d-Hi', time()) . '.' . strtolower($writerType);
             $PHPWriter->save($savePath . DIRECTORY_SEPARATOR . $fileName); //表示在$path路径下面生成demo.xlsx文件
         }
     }
@@ -160,12 +160,12 @@ class ExcelExporter
                 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');//告诉浏览器输出07Excel文件
             }
             header('Cache-Control: max-age=0');//禁止缓存
-            $fileName = 'excel_' . date('Y-m-d-Hi', time()) . '.' . $writerType;
+            $fileName = 'excel_' . date('Y-m-d-Hi', time()) . '.' . strtolower($writerType);
             header("Content-Disposition: attachment;filename=\"$fileName\"");//告诉浏览器输出浏览器名称
 
             $PHPWriter->save("php://output"); //表示输出到下载流
         } else {
-            $fileName = 'excel_' . date('Y-m-d-Hi', time()) . '.' . $writerType;
+            $fileName = 'excel_' . date('Y-m-d-Hi', time()) . '.' . strtolower($writerType);
             $PHPWriter->save($savePath . DIRECTORY_SEPARATOR . $fileName); //表示在$path路径下面生成demo.xlsx文件
         }
     }
