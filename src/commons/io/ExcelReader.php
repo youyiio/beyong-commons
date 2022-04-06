@@ -37,8 +37,9 @@ class ExcelReader
 
         $excelData = array();
         $offset = $hasTitle ? 1 : 0;
+        //excel 列和行都是从0开始，但数据存储是从1开始
         for ($row = 1 + $offset; $row <= $highestRow; $row++) {
-            for ($col = 0; $col < $highestColumnIndex; $col++) {
+            for ($col = 1; $col <= $highestColumnIndex; $col++) {
                 $excelData[$row - $offset - 1][] = (string)$objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
             }
         }
