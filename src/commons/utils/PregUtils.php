@@ -6,7 +6,7 @@ class PregUtils {
 	const PREG_NUMBER = '/^[0-9]*$/';
 	const PREG_NUMBERIC = '/^[0-9.]*$/';
 	const PREG_EMAIL = '/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/';
-    const PREG_MOBILE = '/^1[34578]\d{9}$/';
+    const PREG_MOBILE = '/^1[3456789]\d{9}$/';
     const PREG_TELEPHONE = '(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,8}';
     const PREG_URL = '/^[a-zA-Z]+://(\w+(-\w+)*)(\.(\w+(-\w+)*))*(\?\s*)?$/';
     const PREG_IP = '/(\d+)\.(\d+)\.(\d+)\.(\d+)/g';
@@ -55,5 +55,3 @@ class PregUtils {
 		return preg_match(PregUtils::PREG_PASSWORD, $str);
 	}
 }
-
-?>
